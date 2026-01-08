@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Care - System Architecture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --success: #27ae60;
+            --danger: #e74c3c;
+            --bg: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 30px; }
+
+        .architecture-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            width: 100%;
+            max-width: 1200px;
+            gap: 20px;
+        }
+
+        .module {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 20px;
+            flex: 1;
+            position: relative;
+            border-top: 5px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .module:hover { transform: translateY(-5px); }
+
+        .module-header {
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge {
+            background: var(--accent);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+        }
+
+        .tech-logos {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .tech-logos img {
+            height: 25px;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+
+        .module:hover .tech-logos img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        ul { padding-left: 18px; color: #555; font-size: 0.85rem; }
+        li { margin-bottom: 8px; }
+
+        .arrow {
+            display: flex;
+            align-items: center;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .output-box { border-top-color: var(--success); }
+        .input-box { border-top-color: var(--secondary); }
+
+        /* Animation for Data Flow */
+        .connector {
+            height: 2px;
+            background: #ddd;
+            flex-grow: 1;
+            align-self: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .connector::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            animation: flow 2s infinite linear;
+        }
+
+        @keyframes flow {
+            from { left: -50px; }
+            to { left: 100%; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Deep Care: System Architecture Flow</h1>
+
+    <div class="architecture-container">
+        <div class="module input-box">
+            <div class="module-header">Input Source</div>
+            <ul>
+                <li><b>Galar/Kvasir Dataset</b> (2025)</li>
+                <li>Raw WCE Video Stream</li>
+                <li>Patient Metadata (Age/PH)</li>
+            </ul>
+            <div class="tech-logos">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Pandas_logo.svg" title="Pandas">
+                <img src="https://opencv.org/wp-content/uploads/2020/07/OpenCV_logo_no_text_.png" title="OpenCV">
+            </div>
+        </div>
+
+        <div class="connector"></div>
+
+        <div class="module">
+            <div class="module-header">
+                Phase 1 <span class="badge">Quality Gatekeeper</span>
+            </div>
+            <ul>
+                <li><b>MobileNetV4</b> Binary Filter</li>
+                <li>Pruning Bubbles & Debris</li>
+                <li>Contrast Enhancement (CLAHE)</li>
+            </ul>
+            <div class="tech-logos">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg" title="PyTorch">
+                <img src="https://www.python.org/static/community_logos/python-logo-only.png" title="Python">
+            </div>
+        </div>
+
+        <div class="connector"></div>
+
+        <div class="module">
+            <div class="module-header">
+                Phase 2 <span class="badge">Deep Learning</span>
+            </div>
+            <ul>
+                <li><b>EfficientNet-Edge</b> Backbone</li>
+                <li>Task A: Anatomical Location</li>
+                <li>Task B: Pathology Detection</li>
+            </ul>
+            <div class="tech-logos">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg" title="PyTorch">
+            </div>
+        </div>
+
+        <div class="connector"></div>
+
+        <div class="module output-box">
+            <div class="module-header">
+                Results <span class="badge">XAI Dashboard</span>
+            </div>
+            <ul>
+                <li><b>Grad-CAM++</b> Saliency Maps</li>
+                <li>Temporal Viterbi Smoothing</li>
+                <li>Clinical Diagnostic Report</li>
+            </ul>
+            <div class="tech-logos">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" title="Scikit-Learn">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Interactive highlight logic
+        document.querySelectorAll('.module').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.backgroundColor = '#fff';
+            });
+        });
+    </script>
+</body>
+</html>
