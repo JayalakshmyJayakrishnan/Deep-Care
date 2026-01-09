@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Deep Care - Functional System Architecture</title>
+    <title>Deep Care - Functional Data Flow</title>
     <style>
         body {
             background-color: #fff;
@@ -10,7 +10,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px;
+            padding: 30px;
         }
 
         .no-print {
@@ -19,202 +19,208 @@
             background: #000;
             color: #fff;
             cursor: pointer;
-            border: none;
+            border: 2px solid #000;
             font-weight: bold;
         }
 
         @media print { .no-print { display: none; } }
 
-        /* Diagram Canvas */
-        .diagram-canvas {
+        /* Container */
+        .diagram-container {
             width: 900px;
-            border: 1.5px solid #000;
-            padding: 50px;
+            border: 2px solid #000;
+            padding: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .fig-label {
+        .fig-title {
             font-size: 14pt;
             font-weight: bold;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         /* Module Boxes */
         .module {
-            border: 2px solid #000;
-            width: 600px;
+            border: 3px solid #000;
+            width: 280px;
             padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 11pt;
             background: #fff;
+        }
+
+        /* Flow Path Logic */
+        .flow-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .heavy-arrow {
+            display: flex;
+            align-items: center;
             position: relative;
         }
 
-        .module-name {
-            font-weight: bold;
-            font-size: 12pt;
-            border-bottom: 1.5px solid #000;
-            margin-bottom: 8px;
-            text-transform: uppercase;
+        .h-line {
+            height: 4px;
+            width: 60px;
+            background: #000;
         }
 
-        .io-group {
-            font-size: 10pt;
-            line-height: 1.4;
-        }
-
-        .io-group b { color: #000; }
-
-        /* Flow Connectors */
-        .flow {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 5px 0;
-        }
-
-        .line {
-            width: 2px;
+        .v-line {
+            width: 4px;
             height: 40px;
             background: #000;
         }
 
-        .arrowhead {
-            width: 0; 
-            height: 0; 
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 12px solid #000;
+        .arrow-head-right {
+            width: 0; height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 15px solid #000;
         }
 
-        .data-tag {
-            font-size: 9.5pt;
-            font-style: italic;
-            border: 1px solid #000;
-            padding: 2px 6px;
-            background: #fff;
-            margin-top: -25px;
-            margin-bottom: 10px;
-            z-index: 5;
+        .arrow-head-down {
+            width: 0; height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 15px solid #000;
         }
 
-        /* MTL Parallel Branching */
-        .mtl-container {
+        /* Specific Layout Elements */
+        .data-source {
+            border: 2px solid #000;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 10pt;
+        }
+
+        .output-branch {
             display: flex;
-            width: 634px;
+            width: 600px;
             justify-content: space-between;
             margin-top: 10px;
         }
 
-        .branch-box {
-            border: 1.5px dashed #000;
-            width: 46%;
+        .task-box {
+            border: 2px dashed #000;
             padding: 10px;
+            width: 220px;
             text-align: center;
-            font-size: 11pt;
-            background: #fcfcfc;
+            font-size: 10pt;
         }
 
-        /* Logos */
-        .logo-tray {
-            position: absolute;
-            right: 10px;
-            top: 40px;
+        .label-text {
+            font-size: 9pt;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .logos-strip {
+            margin-top: 15px;
             display: flex;
-            flex-direction: column;
-            gap: 5px;
+            gap: 20px;
         }
 
-        .logo-tray img { height: 35px; width: auto; }
+        .logos-strip img { height: 35px; }
 
         .caption {
-            margin-top: 40px;
+            margin-top: 30px;
             font-size: 11pt;
-            text-align: center;
-            width: 800px;
+            text-align: justify;
+            width: 100%;
         }
     </style>
 </head>
 <body>
 
-    <button class="no-print" onclick="window.print()">Generate PDF for Paper</button>
+    <button class="no-print" onclick="window.print()">Print for Research Paper</button>
 
-    <div class="diagram-canvas">
-        <div class="fig-label">Fig. 1. Deep Care System Architecture and Data Flow</div>
+    <div class="diagram-container">
+        <div class="fig-title">Fig 1. Functional System Architecture and Systematic Data Flow</div>
+
+        <div class="flow-row">
+            <div class="data-source">
+                <b>Galar (2025) & Kvasir</b><br>Raw Video Dataset 
+            </div>
+            <div class="heavy-arrow">
+                <div class="h-line"></div>
+                <div class="arrow-head-right"></div>
+            </div>
+            <div class="module">
+                PHASE 1:<br>Preprocessing & Extraction<br>(OpenCV)
+            </div>
+        </div>
+
+        <div class="v-line"></div>
+        <div class="arrow-head-down"></div>
+        <div class="label-text">Enhanced Image Tensors</div>
 
         <div class="module">
-            <div class="module-name">I. Data Ingestion & Pre-Processing</div>
-            <div class="io-group">
-                <b>INPUT:</b> Raw WCE Stream (.mp4), Galar/Kvasir Datasets<br>
-                <b>OUTPUT:</b> Normalized RGB Tensors (224x224)
+            PHASE 2:<br>Quality Gatekeeper<br>(MobileNetV4) 
+        </div>
+
+        <div class="v-line"></div>
+        <div class="arrow-head-down"></div>
+        <div class="label-text">Validated Diagnostic Frames</div>
+
+        <div class="module" style="width: 400px; background: #f9f9f9;">
+            PHASE 3: MTL Engine<br>(Shared EfficientNet-Edge Backbone) [cite: 34]
+        </div>
+
+        <div class="output-branch">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <div class="v-line" style="height: 20px;"></div>
+                <div class="arrow-head-down"></div>
+                <div class="task-box">
+                    <b>Task A: Localization</b><br>
+                    Stomach, Bowel, Colon [cite: 35]
+                </div>
             </div>
-            <div class="logo-tray">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <div class="v-line" style="height: 20px;"></div>
+                <div class="arrow-head-down"></div>
+                <div class="task-box">
+                    <b>Task B: Classification</b><br>
+                    14 Lesion Types [cite: 36]
+                </div>
             </div>
         </div>
 
-        <div class="flow">
-            <div class="line"></div>
-            <div class="arrowhead"></div>
-            <div class="data-tag">CLAHE-Enhanced Frames</div>
+        <div style="height: 30px; display: flex; align-items: flex-end;">
+            <div style="width: 4px; height: 30px; background: #000;"></div>
         </div>
-
-        <div class="module">
-            <div class="module-name">II. Quality Gatekeeper (MobileNetV4)</div>
-            <div class="io-group">
-                <b>INPUT:</b> Pre-processed Image Stream<br>
-                <b>OUTPUT:</b> Validated Diagnostic Sub-set
-            </div>
-            <div class="logo-tray">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-            </div>
-        </div>
-
-        <div class="flow">
-            <div class="line"></div>
-            <div class="arrowhead"></div>
-            <div class="data-tag">Filtered Mucosal Data</div>
-        </div>
-
-        <div class="module">
-            <div class="module-name">III. MTL Engine (EfficientNet-Edge)</div>
-            <div class="io-group">
-                <b>INPUT:</b> Validated Diagnostic Frames<br>
-                <b>OUTPUT:</b> Shared Feature Maps & Probabilities
-            </div>
-            <div class="logo-tray">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch">
-            </div>
-        </div>
-
-        <div class="mtl-container">
-            <div class="branch-box">
-                <b>Output A:</b><br>Anatomical Localization<br>(Stomach/Bowel/Colon)
-            </div>
-            <div class="branch-box">
-                <b>Output B:</b><br>Pathological Detection<br>(14 Lesion Types)
-            </div>
-        </div>
-
-        <div class="flow">
-            <div class="line"></div>
-            <div class="arrowhead"></div>
-            <div class="data-tag">Diagnostic Logits</div>
-        </div>
+        <div class="arrow-head-down"></div>
+        <div class="label-text">Predictive Logits & Spatial Maps</div>
 
         <div class="module">
-            <div class="module-name">IV. Transparency & Smoothing</div>
-            <div class="io-group">
-                <b>INPUT:</b> Classification Logits + Sequential Metadata<br>
-                <b>OUTPUT:</b> Explainable Decision Support Report
-            </div>
-            <div class="logo-tray">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Sklearn">
-            </div>
+            PHASE 4:<br>Explainability & Smoothing<br>(Grad-CAM++ / Viterbi) 
+        </div>
+
+        <div class="v-line"></div>
+        <div class="arrow-head-down"></div>
+
+        <div class="data-source" style="border-style: double; border-width: 4px; width: 400px; text-align: center;">
+            <b>Transparent Decision Support Report</b> <br>
+            (Clinical Evidence + Temporal Consistency)
+        </div>
+
+        <div class="logos-strip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Sklearn">
         </div>
 
         <div class="caption">
-            Architecture depicting the functional interconnections and directional data passage between processing units, illustrating the transition from raw ingestion to transparent diagnostic output.
+            The Deep Care architecture transitions raw endoscopic video into a transparent report. 
+            MobileNetV4 filters non-diagnostic data, while the EfficientNet-Edge backbone performs 
+            multi-task learning [cite: 34] for simultaneous anatomical and pathological analysis.
         </div>
     </div>
 
