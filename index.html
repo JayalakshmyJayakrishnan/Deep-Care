@@ -29,15 +29,15 @@
         /* Main Container */
         .diagram-container {
             width: 850px;
-            border: 1.5px solid #000;
-            padding: 40px;
+            border: 2px solid #000;
+            padding: 50px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .fig-title {
-            font-size: 14pt;
+            font-size: 16pt;
             font-weight: bold;
             margin-bottom: 40px;
             text-align: center;
@@ -45,96 +45,102 @@
 
         /* Module Styling */
         .module-box {
-            border: 2px solid #000;
+            border: 3px solid #000;
             width: 650px;
-            padding: 15px;
+            padding: 20px;
             position: relative;
             background: #fff;
+            z-index: 2;
         }
 
         .module-header {
             font-weight: bold;
-            font-size: 12pt;
-            border-bottom: 1.5px solid #000;
-            margin-bottom: 10px;
+            font-size: 13pt;
+            border-bottom: 2px solid #000;
+            margin-bottom: 12px;
             text-transform: uppercase;
         }
 
         .io-labels {
-            font-size: 10.5pt;
-            margin-bottom: 10px;
-            line-height: 1.4;
+            font-size: 11pt;
+            margin-bottom: 12px;
+            line-height: 1.5;
         }
 
         .io-labels b { color: #000; }
 
-        /* Connection Flow */
+        /* HEAVY DUTY CONNECTION FLOW */
         .flow-arrow {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 5px 0;
+            margin: -3px 0; /* Tighten gap for overlap */
+            position: relative;
+            z-index: 1;
         }
 
         .arrow-line {
-            width: 2px;
-            height: 35px;
+            width: 4px; /* THICKER LINE */
+            height: 50px;
             background: #000;
         }
 
         .arrow-head {
             width: 0; 
             height: 0; 
-            border-left: 7px solid transparent;
-            border-right: 7px solid transparent;
-            border-top: 10px solid #000;
+            border-left: 12px solid transparent; /* LARGER HEAD */
+            border-right: 12px solid transparent;
+            border-top: 18px solid #000; /* SOLID BLACK */
+            margin-top: -2px;
         }
 
         .data-label {
-            font-size: 10pt;
+            font-size: 10.5pt;
+            font-weight: bold;
             font-style: italic;
             background: #fff;
-            padding: 2px 8px;
-            border: 1px solid #000;
-            margin: -22px 0 8px 0;
+            padding: 4px 12px;
+            border: 2px solid #000;
+            margin-top: -35px;
+            margin-bottom: 15px;
             z-index: 10;
         }
 
         /* Logos */
         .logos {
             position: absolute;
-            right: 10px;
-            top: 45px;
+            right: 15px;
+            top: 50px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
         }
 
-        .logos img { height: 35px; width: auto; }
+        .logos img { height: 40px; width: auto; }
 
         /* Multi-Task Split */
         .mtl-container {
             display: flex;
-            width: 684px;
+            width: 694px;
             justify-content: space-between;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         .mtl-branch {
-            border: 1.5px dashed #000;
+            border: 2.5px dashed #000;
             width: 46%;
-            padding: 10px;
+            padding: 15px;
             text-align: center;
-            font-size: 11pt;
-            background: #fafafa;
+            font-size: 11.5pt;
+            background: #fcfcfc;
         }
 
         .caption {
-            margin-top: 40px;
-            font-size: 11pt;
+            margin-top: 50px;
+            font-size: 12pt;
             text-align: justify;
             width: 100%;
-            line-height: 1.3;
+            line-height: 1.4;
         }
     </style>
 </head>
@@ -143,18 +149,18 @@
     <button class="no-print" onclick="window.print()">Print for Research Paper</button>
 
     <div class="diagram-container">
-        <div class="fig-title">Fig. 1. Functional Architecture and Systematic Data Flow of Deep Care</div>
+        <div class="fig-title">Fig. 1. Functional System Architecture and Data Flow Optimization for Deep Care</div>
 
         <div class="module-box">
             <div class="module-header">I. Data Pre-Processing Unit</div>
             <div class="io-labels">
-                <b>INPUT:</b> Raw WCE Video Stream, Galar (2025) Dataset [cite: 50, 52]<br>
+                <b>INPUT:</b> Raw WCE Video Stream, Galar (2025) Dataset <br>
                 <b>OUTPUT:</b> Normalized, CLAHE-Enhanced Image Frames
             </div>
             <div class="content">
-                • Extraction of frames from raw video formats (.mp4/AVI).<br>
-                • Histogram equalization for visibility enhancement.<br>
-                • Image resizing to standard 224x224 resolution.
+                • Frame extraction from raw video containers (.mp4/AVI).<br>
+                • Adaptive histogram equalization for contrast enhancement.<br>
+                • Spatial normalization to standard input resolution (224x224).
             </div>
             <div class="logos">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV">
@@ -171,12 +177,12 @@
             <div class="module-header">II. Quality Gatekeeper (MobileNetV4)</div>
             <div class="io-labels">
                 <b>INPUT:</b> Pre-processed Image Stream<br>
-                <b>OUTPUT:</b> Validated Diagnostic Frame Selection [cite: 29, 30]
+                <b>OUTPUT:</b> Validated Diagnostic Frame Selection 
             </div>
             <div class="content">
-                • Binary classification for diagnostic validity[cite: 30].<br>
-                • Automatic pruning of frames obscured by bubbles or debris[cite: 31, 32].<br>
-                • Reduction of computational load for downstream modules[cite: 32].
+                • Binary classification for diagnostic relevance validation.<br>
+                • Autonomous pruning of frames obscured by artifacts (bubbles/debris).<br>
+                • Computational load optimization for downstream inference.
             </div>
             <div class="logos">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
@@ -186,18 +192,18 @@
         <div class="flow-arrow">
             <div class="arrow-line"></div>
             <div class="arrow-head"></div>
-            <div class="data-label">High-Quality Frame Sets</div>
+            <div class="data-label">Validated High-Quality Frame Sets</div>
         </div>
 
         <div class="module-box">
             <div class="module-header">III. Multi-Task Learning Engine (EfficientNet-Edge)</div>
             <div class="io-labels">
-                <b>INPUT:</b> Validated Diagnostic Mucosal Frames<br>
-                <b>OUTPUT:</b> Synced Anatomical & Pathological Probabilities [cite: 33, 34]
+                <b>INPUT:</b> Quality-Validated Diagnostic Mucosal Frames<br>
+                <b>OUTPUT:</b> Concurrent Anatomical & Pathological Probabilities 
             </div>
             <div class="content">
-                • Shared encoder backbone for universal feature extraction[cite: 34].<br>
-                • Concurrent processing of localization and detection tasks[cite: 28, 33].
+                • Shared encoder backbone for universal feature extraction.<br>
+                • Simultaneous processing of localization and detection tasks.
             </div>
             <div class="logos">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch">
@@ -206,29 +212,29 @@
 
         <div class="mtl-container">
             <div class="mtl-branch">
-                <b>Task A:</b><br>Anatomical Localization<br>(Stomach, Bowel, Colon) [cite: 35]
+                <b>Task A:</b><br>Anatomical Localization<br>(Stomach, Bowel, Colon) 
             </div>
             <div class="mtl-branch">
-                <b>Task B:</b><br>Pathological Classification<br>(14 Lesion Types) [cite: 36]
+                <b>Task B:</b><br>Pathological Classification<br>(14 Lesion Types) 
             </div>
         </div>
 
-        <div class="flow-arrow">
+        <div class="flow-arrow" style="margin-top: 10px;">
             <div class="arrow-line"></div>
             <div class="arrow-head"></div>
-            <div class="data-label">Logits & Spatial Feature Maps</div>
+            <div class="data-label">Joint Feature Maps & Predictive Logits</div>
         </div>
 
         <div class="module-box">
-            <div class="module-header">IV. Transparency & Temporal Analysis</div>
+            <div class="module-header">IV. Transparency & Temporal Consistency</div>
             <div class="io-labels">
-                <b>INPUT:</b> Classification Probabilities + Sequential Frame Metadata<br>
-                <b>OUTPUT:</b> Verified Transparent Decision Support Report [cite: 44]
+                <b>INPUT:</b> MTL Predictions + Sequential Metadata<br>
+                <b>OUTPUT:</b> Transparent Clinical Decision Support Report 
             </div>
             <div class="content">
-                • <b>Grad-CAM++:</b> Saliency map generation for diagnostic evidence[cite: 42].<br>
-                • <b>Viterbi Smoothing:</b> Anatomical constraint enforcement[cite: 40].<br>
-                • <b>Temporal Context:</b> Sequential frame processing via sliding window[cite: 39].
+                • <b>Grad-CAM++:</b> Saliency map generation for localized visual evidence.<br>
+                • <b>Viterbi Smoothing:</b> Anatomical logic enforcement across video context.<br>
+                • <b>Temporal Context:</b> Sequential frame processing via sliding window.
             </div>
             <div class="logos">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Sklearn">
@@ -236,7 +242,7 @@
         </div>
 
         <div class="caption">
-            Fig 1. Detailed system architecture of the Deep Care framework, illustrating the sequential data flow from initial acquisition through quality validation, multi-task inference, and final explainable output generation.
+            Fig 1. Functional system architecture of the Deep Care framework. The diagram illustrates the high-throughput sequential data flow, utilizing multi-task learning and temporal modeling to transition from raw video input to explainable diagnostic results.
         </div>
     </div>
 
