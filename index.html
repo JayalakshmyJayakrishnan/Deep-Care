@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Functional Architecture - Deep Care</title>
+    <title>Deep Care - Functional System Architecture</title>
     <style>
         body {
             background-color: #fff;
@@ -14,235 +14,207 @@
         }
 
         .no-print {
-            margin-bottom: 30px;
-            padding: 12px 24px;
+            margin-bottom: 20px;
+            padding: 10px 20px;
             background: #000;
             color: #fff;
             cursor: pointer;
-            border: 2px solid #000;
+            border: none;
             font-weight: bold;
-            font-size: 14pt;
         }
 
         @media print { .no-print { display: none; } }
 
-        /* Main Container */
-        .diagram-container {
-            width: 850px;
-            border: 2px solid #000;
+        /* Diagram Canvas */
+        .diagram-canvas {
+            width: 900px;
+            border: 1.5px solid #000;
             padding: 50px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .fig-title {
-            font-size: 16pt;
+        .fig-label {
+            font-size: 14pt;
             font-weight: bold;
             margin-bottom: 40px;
-            text-align: center;
         }
 
-        /* Module Styling */
-        .module-box {
-            border: 3px solid #000;
-            width: 650px;
-            padding: 20px;
-            position: relative;
+        /* Module Boxes */
+        .module {
+            border: 2px solid #000;
+            width: 600px;
+            padding: 15px;
             background: #fff;
-            z-index: 2;
+            position: relative;
         }
 
-        .module-header {
+        .module-name {
             font-weight: bold;
-            font-size: 13pt;
-            border-bottom: 2px solid #000;
-            margin-bottom: 12px;
+            font-size: 12pt;
+            border-bottom: 1.5px solid #000;
+            margin-bottom: 8px;
             text-transform: uppercase;
         }
 
-        .io-labels {
-            font-size: 11pt;
-            margin-bottom: 12px;
-            line-height: 1.5;
+        .io-group {
+            font-size: 10pt;
+            line-height: 1.4;
         }
 
-        .io-labels b { color: #000; }
+        .io-group b { color: #000; }
 
-        /* HEAVY DUTY CONNECTION FLOW */
-        .flow-arrow {
+        /* Flow Connectors */
+        .flow {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: -3px 0; /* Tighten gap for overlap */
-            position: relative;
-            z-index: 1;
+            margin: 5px 0;
         }
 
-        .arrow-line {
-            width: 4px; /* THICKER LINE */
-            height: 50px;
+        .line {
+            width: 2px;
+            height: 40px;
             background: #000;
         }
 
-        .arrow-head {
+        .arrowhead {
             width: 0; 
             height: 0; 
-            border-left: 12px solid transparent; /* LARGER HEAD */
-            border-right: 12px solid transparent;
-            border-top: 18px solid #000; /* SOLID BLACK */
-            margin-top: -2px;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 12px solid #000;
         }
 
-        .data-label {
-            font-size: 10.5pt;
-            font-weight: bold;
+        .data-tag {
+            font-size: 9.5pt;
             font-style: italic;
+            border: 1px solid #000;
+            padding: 2px 6px;
             background: #fff;
-            padding: 4px 12px;
-            border: 2px solid #000;
-            margin-top: -35px;
-            margin-bottom: 15px;
-            z-index: 10;
+            margin-top: -25px;
+            margin-bottom: 10px;
+            z-index: 5;
         }
 
-        /* Logos */
-        .logos {
-            position: absolute;
-            right: 15px;
-            top: 50px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .logos img { height: 40px; width: auto; }
-
-        /* Multi-Task Split */
+        /* MTL Parallel Branching */
         .mtl-container {
             display: flex;
-            width: 694px;
+            width: 634px;
             justify-content: space-between;
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
-        .mtl-branch {
-            border: 2.5px dashed #000;
+        .branch-box {
+            border: 1.5px dashed #000;
             width: 46%;
-            padding: 15px;
+            padding: 10px;
             text-align: center;
-            font-size: 11.5pt;
+            font-size: 11pt;
             background: #fcfcfc;
         }
 
+        /* Logos */
+        .logo-tray {
+            position: absolute;
+            right: 10px;
+            top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .logo-tray img { height: 35px; width: auto; }
+
         .caption {
-            margin-top: 50px;
-            font-size: 12pt;
-            text-align: justify;
-            width: 100%;
-            line-height: 1.4;
+            margin-top: 40px;
+            font-size: 11pt;
+            text-align: center;
+            width: 800px;
         }
     </style>
 </head>
 <body>
 
-    <button class="no-print" onclick="window.print()">Print for Research Paper</button>
+    <button class="no-print" onclick="window.print()">Generate PDF for Paper</button>
 
-    <div class="diagram-container">
-        <div class="fig-title">Fig. 1. Functional System Architecture and Data Flow Optimization for Deep Care</div>
+    <div class="diagram-canvas">
+        <div class="fig-label">Fig. 1. Deep Care System Architecture and Data Flow</div>
 
-        <div class="module-box">
-            <div class="module-header">I. Data Pre-Processing Unit</div>
-            <div class="io-labels">
-                <b>INPUT:</b> Raw WCE Video Stream, Galar (2025) Dataset <br>
-                <b>OUTPUT:</b> Normalized, CLAHE-Enhanced Image Frames
+        <div class="module">
+            <div class="module-name">I. Data Ingestion & Pre-Processing</div>
+            <div class="io-group">
+                <b>INPUT:</b> Raw WCE Stream (.mp4), Galar/Kvasir Datasets<br>
+                <b>OUTPUT:</b> Normalized RGB Tensors (224x224)
             </div>
-            <div class="content">
-                • Frame extraction from raw video containers (.mp4/AVI).<br>
-                • Adaptive histogram equalization for contrast enhancement.<br>
-                • Spatial normalization to standard input resolution (224x224).
-            </div>
-            <div class="logos">
+            <div class="logo-tray">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV">
             </div>
         </div>
 
-        <div class="flow-arrow">
-            <div class="arrow-line"></div>
-            <div class="arrow-head"></div>
-            <div class="data-label">Enhanced RGB Tensors</div>
+        <div class="flow">
+            <div class="line"></div>
+            <div class="arrowhead"></div>
+            <div class="data-tag">CLAHE-Enhanced Frames</div>
         </div>
 
-        <div class="module-box">
-            <div class="module-header">II. Quality Gatekeeper (MobileNetV4)</div>
-            <div class="io-labels">
+        <div class="module">
+            <div class="module-name">II. Quality Gatekeeper (MobileNetV4)</div>
+            <div class="io-group">
                 <b>INPUT:</b> Pre-processed Image Stream<br>
-                <b>OUTPUT:</b> Validated Diagnostic Frame Selection 
+                <b>OUTPUT:</b> Validated Diagnostic Sub-set
             </div>
-            <div class="content">
-                • Binary classification for diagnostic relevance validation.<br>
-                • Autonomous pruning of frames obscured by artifacts (bubbles/debris).<br>
-                • Computational load optimization for downstream inference.
-            </div>
-            <div class="logos">
+            <div class="logo-tray">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
             </div>
         </div>
 
-        <div class="flow-arrow">
-            <div class="arrow-line"></div>
-            <div class="arrow-head"></div>
-            <div class="data-label">Validated High-Quality Frame Sets</div>
+        <div class="flow">
+            <div class="line"></div>
+            <div class="arrowhead"></div>
+            <div class="data-tag">Filtered Mucosal Data</div>
         </div>
 
-        <div class="module-box">
-            <div class="module-header">III. Multi-Task Learning Engine (EfficientNet-Edge)</div>
-            <div class="io-labels">
-                <b>INPUT:</b> Quality-Validated Diagnostic Mucosal Frames<br>
-                <b>OUTPUT:</b> Concurrent Anatomical & Pathological Probabilities 
+        <div class="module">
+            <div class="module-name">III. MTL Engine (EfficientNet-Edge)</div>
+            <div class="io-group">
+                <b>INPUT:</b> Validated Diagnostic Frames<br>
+                <b>OUTPUT:</b> Shared Feature Maps & Probabilities
             </div>
-            <div class="content">
-                • Shared encoder backbone for universal feature extraction.<br>
-                • Simultaneous processing of localization and detection tasks.
-            </div>
-            <div class="logos">
+            <div class="logo-tray">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch">
             </div>
         </div>
 
         <div class="mtl-container">
-            <div class="mtl-branch">
-                <b>Task A:</b><br>Anatomical Localization<br>(Stomach, Bowel, Colon) 
+            <div class="branch-box">
+                <b>Output A:</b><br>Anatomical Localization<br>(Stomach/Bowel/Colon)
             </div>
-            <div class="mtl-branch">
-                <b>Task B:</b><br>Pathological Classification<br>(14 Lesion Types) 
+            <div class="branch-box">
+                <b>Output B:</b><br>Pathological Detection<br>(14 Lesion Types)
             </div>
         </div>
 
-        <div class="flow-arrow" style="margin-top: 10px;">
-            <div class="arrow-line"></div>
-            <div class="arrow-head"></div>
-            <div class="data-label">Joint Feature Maps & Predictive Logits</div>
+        <div class="flow">
+            <div class="line"></div>
+            <div class="arrowhead"></div>
+            <div class="data-tag">Diagnostic Logits</div>
         </div>
 
-        <div class="module-box">
-            <div class="module-header">IV. Transparency & Temporal Consistency</div>
-            <div class="io-labels">
-                <b>INPUT:</b> MTL Predictions + Sequential Metadata<br>
-                <b>OUTPUT:</b> Transparent Clinical Decision Support Report 
+        <div class="module">
+            <div class="module-name">IV. Transparency & Smoothing</div>
+            <div class="io-group">
+                <b>INPUT:</b> Classification Logits + Sequential Metadata<br>
+                <b>OUTPUT:</b> Explainable Decision Support Report
             </div>
-            <div class="content">
-                • <b>Grad-CAM++:</b> Saliency map generation for localized visual evidence.<br>
-                • <b>Viterbi Smoothing:</b> Anatomical logic enforcement across video context.<br>
-                • <b>Temporal Context:</b> Sequential frame processing via sliding window.
-            </div>
-            <div class="logos">
+            <div class="logo-tray">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Sklearn">
             </div>
         </div>
 
         <div class="caption">
-            Fig 1. Functional system architecture of the Deep Care framework. The diagram illustrates the high-throughput sequential data flow, utilizing multi-task learning and temporal modeling to transition from raw video input to explainable diagnostic results.
+            Architecture depicting the functional interconnections and directional data passage between processing units, illustrating the transition from raw ingestion to transparent diagnostic output.
         </div>
     </div>
 
