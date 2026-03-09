@@ -1,0 +1,426 @@
+{
+    "study_id": "EVAL-20260303-125853",
+    "timestamp": "2026-03-03T12:58:53.163256",
+    "dataset_dir": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)",
+    "total_frames_sampled": 50,
+    "metrics": {
+        "processed": 50,
+        "skipped_low_quality": 0,
+        "abnormalities_detected": 11,
+        "anatomy_breakdown": {
+            "Small Bowel": 41,
+            "Colon": 9
+        },
+        "pathology_breakdown": {
+            "Normal": 39,
+            "Erosion": 1,
+            "Ulcer": 3,
+            "Stricture": 1,
+            "Chylous Cyst": 2,
+            "Bleeding": 1,
+            "Red Spots": 3
+        }
+    },
+    "findings": [
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_101545.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.10026848316192627,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_072545.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Colon",
+            "pathology": "Erosion",
+            "confidence": 0.09342209994792938,
+            "heatmap_url": "EVAL-20260303-125853\\heatmap_9cb28e57.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\6\\frame_023645.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.09376661479473114,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\3\\frame_066695.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.0943133682012558,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\3\\frame_047330.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Colon",
+            "pathology": "Normal",
+            "confidence": 0.10225895792245865,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\2\\frame_015195.PNG",
+            "quality_score": 0.8588449854948083,
+            "anatomy": "Colon",
+            "pathology": "Ulcer",
+            "confidence": 0.09578055143356323,
+            "heatmap_url": "EVAL-20260303-125853\\heatmap_9b2e4699.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\3\\frame_020980.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.09349274635314941,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\5\\frame_032515.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.09581255167722702,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\5\\frame_010525.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Stricture",
+            "confidence": 0.09577593207359314,
+            "heatmap_url": "EVAL-20260303-125853\\heatmap_14f5cf5c.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\5\\frame_021335.PNG",
+            "quality_score": 0.8534718960178538,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.10548491030931473,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\3\\frame_071050.PNG",
+            "quality_score": 0.7513645470868244,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.10267327725887299,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_070745.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.09738010168075562,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\6\\frame_013655.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.10476160794496536,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\10\\frame_019950.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Colon",
+            "pathology": "Normal",
+            "confidence": 0.11289335787296295,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_086610.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.09283459931612015,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_026205.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.0956592932343483,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\3\\frame_071420.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.11158431321382523,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\8\\frame_000250.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Chylous Cyst",
+            "confidence": 0.09686090052127838,
+            "heatmap_url": "EVAL-20260303-125853\\heatmap_7097287a.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_011880.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Bleeding",
+            "confidence": 0.1025606095790863,
+            "heatmap_url": "EVAL-20260303-125853\\heatmap_d1637af3.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_022225.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.10684233158826828,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_089395.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.10085725039243698,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_109145.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Colon",
+            "pathology": "Normal",
+            "confidence": 0.0938965231180191,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\8\\frame_012125.PNG",
+            "quality_score": 0.8967237948950306,
+            "anatomy": "Colon",
+            "pathology": "Chylous Cyst",
+            "confidence": 0.09714175760746002,
+            "heatmap_url": "EVAL-20260303-125853\\heatmap_848513d3.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\8\\frame_033315.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.10528040677309036,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\1\\frame_003910.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.10788291692733765,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_101270.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Ulcer",
+            "confidence": 0.10356350243091583,
+            "heatmap_url": "EVAL-20260303-125853\\heatmap_dec76a7b.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\8\\frame_018735.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.09995255619287491,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\4\\frame_010435.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.10381293296813965,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_040610.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.10983040183782578,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\1\\frame_133410.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.10771001875400543,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_055360.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.1051495149731636,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\8\\frame_018740.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.1060265302658081,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\3\\frame_045230.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Colon",
+            "pathology": "Normal",
+            "confidence": 0.09391820430755615,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\1\\frame_095460.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.11267411708831787,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_037955.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.1039612665772438,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\1\\frame_114025.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.11820441484451294,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\5\\frame_027750.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.10165602713823318,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\8\\frame_009715.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Red Spots",
+            "confidence": 0.1038871556520462,
+            "heatmap_url": "EVAL-20260303-125853\\heatmap_0ad5f7f4.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\1\\frame_045260.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Red Spots",
+            "confidence": 0.09697092324495316,
+            "heatmap_url": "EVAL-20260303-125853\\heatmap_88bb660b.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_019030.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Colon",
+            "pathology": "Red Spots",
+            "confidence": 0.10088539868593216,
+            "heatmap_url": "EVAL-20260303-125853\\heatmap_b6f2c3be.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_065815.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.09906058758497238,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\6\\frame_027810.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Ulcer",
+            "confidence": 0.09233666956424713,
+            "heatmap_url": "EVAL-20260303-125853\\heatmap_f22f0bb3.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\1\\frame_090380.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.11261564493179321,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\1\\frame_009075.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.11172552406787872,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_090095.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.10173925012350082,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\1\\frame_111160.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.10579127073287964,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\5\\frame_004375.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.10924442112445831,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\1\\frame_112050.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.1170564517378807,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\8\\frame_004435.PNG",
+            "quality_score": 0.870766450614246,
+            "anatomy": "Colon",
+            "pathology": "Normal",
+            "confidence": 0.09960562735795975,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\1\\frame_033650.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Normal",
+            "confidence": 0.09364007413387299,
+            "heatmap_url": null
+        }
+    ]
+}

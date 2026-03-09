@@ -1,0 +1,14 @@
+{
+    "study_id": "EVAL-20260303-090211",
+    "timestamp": "2026-03-03T09:02:11.644880",
+    "dataset_dir": "d:\\MINOR\\pillcam_platform\\datasets\\galar\\Galar_Frames_1_to_10 (1)",
+    "total_frames_sampled": 5,
+    "metrics": {
+        "processed": 0,
+        "skipped_low_quality": 0,
+        "abnormalities_detected": 0,
+        "anatomy_breakdown": {},
+        "pathology_breakdown": {}
+    },
+    "findings": []
+}

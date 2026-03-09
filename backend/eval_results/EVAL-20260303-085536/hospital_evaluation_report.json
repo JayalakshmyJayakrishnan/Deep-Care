@@ -1,0 +1,63 @@
+{
+    "study_id": "EVAL-20260303-085536",
+    "timestamp": "2026-03-03T08:55:36.736511",
+    "dataset_dir": "d:\\MINOR\\pillcam_platform\\datasets\\galar\\Galar_Frames_1_to_10 (1)",
+    "total_frames_sampled": 5,
+    "metrics": {
+        "processed": 5,
+        "skipped_low_quality": 0,
+        "abnormalities_detected": 5,
+        "anatomy_breakdown": {
+            "Colon": 3,
+            "Small Bowel": 1,
+            "Stomach": 1
+        },
+        "pathology_breakdown": {
+            "Diverticulum": 1,
+            "Bleeding": 3,
+            "Erosion": 1
+        }
+    },
+    "findings": [
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\galar\\Galar_Frames_1_to_10 (1)\\10\\frame_028845.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Colon",
+            "pathology": "Diverticulum",
+            "confidence": 0.10004788637161255,
+            "heatmap_url": "EVAL-20260303-085536\\heatmap_ce71b6d2.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\galar\\Galar_Frames_1_to_10 (1)\\3\\frame_012125.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Colon",
+            "pathology": "Bleeding",
+            "confidence": 0.10515580326318741,
+            "heatmap_url": "EVAL-20260303-085536\\heatmap_3d8d30e2.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\galar\\Galar_Frames_1_to_10 (1)\\3\\frame_037975.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Bleeding",
+            "confidence": 0.0960046797990799,
+            "heatmap_url": "EVAL-20260303-085536\\heatmap_9c6742f2.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\galar\\Galar_Frames_1_to_10 (1)\\3\\frame_066740.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Stomach",
+            "pathology": "Bleeding",
+            "confidence": 0.09586784988641739,
+            "heatmap_url": "EVAL-20260303-085536\\heatmap_890a84dc.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\galar\\Galar_Frames_1_to_10 (1)\\3\\frame_072515.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Colon",
+            "pathology": "Erosion",
+            "confidence": 0.09498775750398636,
+            "heatmap_url": "EVAL-20260303-085536\\heatmap_5eb28a3b.jpg"
+        }
+    ]
+}
