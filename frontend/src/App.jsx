@@ -16,7 +16,7 @@ function App() {
     formData.append('file', uploadData.file);
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/upload', {
+      const response = await fetch(`http://${window.location.hostname}:5000/api/upload`, {
         method: 'POST',
         body: formData,
       });
@@ -47,7 +47,7 @@ function App() {
     setAnalysisResult(null);
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/demo', {
+      const response = await fetch(`http://${window.location.hostname}:5000/api/demo`, {
         method: 'POST',
       });
 
@@ -61,7 +61,7 @@ function App() {
       setAnalysisResult({
         summary: data.summary,
         detailed_results: data.detailed_results,
-        imageUrl: `http://127.0.0.1:5000/uploads/${data.filename}` // Serve the copied demo file
+        imageUrl: `http://${window.location.hostname}:5000/uploads/${data.filename}` // Serve the copied demo file
       });
 
     } catch (error) {

@@ -133,7 +133,17 @@ import base64
 import datetime
 
 STORE = {
-    "users": [],
+    "users": [
+        {
+            "hospitalId": "HOSP-001",
+            "hospName": "General Hospital",
+            "staffId": "STAFF-001",
+            "firstName": "Demo",
+            "lastName": "Doctor",
+            "role": "Gastroenterologist",
+            "passwordHash": base64.b64encode("password123".encode('utf-8')).decode('utf-8')
+        }
+    ],
     "patients": [],
     "sessions": {},
     "_nextPatId": 1
@@ -255,4 +265,4 @@ def get_reference_sample():
     return resp, 503
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000)

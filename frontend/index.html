@@ -905,21 +905,21 @@ input[type=file]{ display: none; }
         <div class="form-row">
           <div class="form-field">
             <label class="form-label">Hospital ID <span class="req">*</span></label>
-            <input class="form-input mono" id="si-hosp-id" type="text" placeholder="e.g. HSP-2024-KL-0042">
+            <input class="form-input mono" id="si-hosp-id" type="text" placeholder="e.g. HSP-2024-KL-0042" value="HOSP-001">
             <div class="field-error" id="err-si-hospid">Please enter your Hospital ID</div>
           </div>
         </div>
         <div class="form-row">
           <div class="form-field">
             <label class="form-label">Staff ID <span class="req">*</span></label>
-            <input class="form-input mono" id="si-staff-id" type="text" placeholder="e.g. DOC-0042">
+            <input class="form-input mono" id="si-staff-id" type="text" placeholder="e.g. DOC-0042" value="STAFF-001">
             <div class="field-error" id="err-si-staffid">Please enter your Staff ID</div>
           </div>
         </div>
         <div class="form-row">
           <div class="form-field">
             <label class="form-label">Password <span class="req">*</span></label>
-            <input class="form-input" id="si-password" type="password" placeholder="Enter your password"
+            <input class="form-input" id="si-password" type="password" placeholder="Enter your password" value="password123"
               onkeydown="if(event.key==='Enter') doSignIn()">
             <div class="field-error" id="err-si-pass">Please enter your password</div>
           </div>
@@ -1251,26 +1251,26 @@ input[type=file]{ display: none; }
               <div class="form-row">
                 <div class="form-field">
                   <label class="form-label">Patient ID <span class="req">*</span></label>
-                  <input class="form-input mono" id="ns-pat-id" type="text" placeholder="Auto-generated or enter manually">
+                  <input class="form-input mono" id="ns-pat-id" type="text" placeholder="Auto-generated or enter manually" value="PAT-001">
                   <div class="field-error" id="err-ns-patid">Patient ID is required</div>
                 </div>
               </div>
               <div class="form-row cols-2">
                 <div class="form-field">
                   <label class="form-label">First Name <span class="req">*</span></label>
-                  <input class="form-input" id="ns-fn" type="text" placeholder="First name">
+                  <input class="form-input" id="ns-fn" type="text" placeholder="First name" value="Demo">
                   <div class="field-error" id="err-ns-fn">Required</div>
                 </div>
                 <div class="form-field">
                   <label class="form-label">Last Name <span class="req">*</span></label>
-                  <input class="form-input" id="ns-ln" type="text" placeholder="Last name">
+                  <input class="form-input" id="ns-ln" type="text" placeholder="Last name" value="Patient">
                   <div class="field-error" id="err-ns-ln">Required</div>
                 </div>
               </div>
               <div class="form-row cols-2">
                 <div class="form-field">
                   <label class="form-label">Date of Birth <span class="req">*</span></label>
-                  <input class="form-input" id="ns-dob" type="date">
+                  <input class="form-input" id="ns-dob" type="date" value="1990-01-01">
                   <div class="field-error" id="err-ns-dob">Required</div>
                 </div>
                 <div class="form-field">
@@ -1294,7 +1294,7 @@ input[type=file]{ display: none; }
               <div class="form-row">
                 <div class="form-field">
                   <label class="form-label">Referring Doctor <span class="req">*</span></label>
-                  <input class="form-input" id="ns-doctor" type="text" placeholder="Doctor's full name and department">
+                  <input class="form-input" id="ns-doctor" type="text" placeholder="Doctor's full name and department" value="Dr. Demo Admin">
                   <div class="field-error" id="err-ns-doc">Referring doctor is required</div>
                 </div>
               </div>
@@ -1803,7 +1803,7 @@ input[type=file]{ display: none; }
 //  → Change BASE_URL to point to your Flask/FastAPI server
 //  → All API calls go through the `api()` helper function
 // ═══════════════════════════════════════════════════════════════
-const BASE_URL = 'http://localhost:5000'; // ← Change this to your backend URL
+const BASE_URL = 'http://' + window.location.hostname + ':5000'; // ← Change this to your backend URL
 
 async function api(method, endpoint, data, isFormData = false) {
   const token = sessionStorage.getItem('deepcare_token');
@@ -2199,6 +2199,10 @@ function handleFileUpload(input) {
     uploadedFile = input.files[0];
     document.querySelector('.uz-title').textContent = '✓ ' + uploadedFile.name;
     document.querySelector('.uz-sub').textContent = (uploadedFile.size / 1024 / 1024).toFixed(1) + ' MB';
+    const uz = document.getElementById('uz');
+    if (uz) { uz.style.borderColor = ''; uz.style.background = ''; }
+    const err = document.getElementById('err-ns-upload');
+    if (err) err.remove();
   }
 }
 
@@ -2209,9 +2213,53 @@ async function submitStudy() {
   if (!document.getElementById('ns-pat-id').value.trim())    { markInput('ns-pat-id', true);      showError('err-ns-patid', true); ok = false; }
   if (!document.getElementById('ns-fn').value.trim())        { markInput('ns-fn', true);           showError('err-ns-fn', true);    ok = false; }
   if (!document.getElementById('ns-ln').value.trim())        { markInput('ns-ln', true);           showError('err-ns-ln', true);    ok = false; }
-  if (!document.getElementById('ns-dob').value)              { markInput('ns-dob', true);          showError('err-ns-dob', true);   ok = false; }
+  const dobVal = document.getElementById('ns-dob').value;
+  if (!dobVal) { 
+      document.getElementById('err-ns-dob').textContent = 'Required';
+      markInput('ns-dob', true); showError('err-ns-dob', true); ok = false; 
+  } else {
+      const dobDate = new Date(dobVal);
+      const ageInMs = Date.now() - dobDate.getTime();
+      const ageInYrs = ageInMs / (1000 * 60 * 60 * 24 * 365.25);
+      if (ageInYrs < 18) {
+          document.getElementById('err-ns-dob').textContent = 'Patient must be 18+ years old';
+          markInput('ns-dob', true); showError('err-ns-dob', true); ok = false;
+      } else {
+          showError('err-ns-dob', false);
+      }
+  }
+
   if (!document.getElementById('ns-doctor').value.trim())    { markInput('ns-doctor', true);       showError('err-ns-doc', true);   ok = false; }
-  if (!document.getElementById('ns-study-date').value)       { markInput('ns-study-date', true);   showError('err-ns-date', true);  ok = false; }
+
+  let studyDateVal = document.getElementById('ns-study-date').value;
+  const localDate = new Date();
+  const todayStr = localDate.getFullYear() + '-' + String(localDate.getMonth() + 1).padStart(2, '0') + '-' + String(localDate.getDate()).padStart(2, '0');
+
+  if (!studyDateVal || studyDateVal !== todayStr) { 
+      document.getElementById('err-ns-date').textContent = 'Study date must be today (' + todayStr + ')';
+      markInput('ns-study-date', true); showError('err-ns-date', true); ok = false;
+  } else {
+      showError('err-ns-date', false);
+  }
+
+  if (!uploadedFile) { 
+      const uz = document.getElementById('uz');
+      if (uz) {
+          uz.style.borderColor = 'var(--red)';
+          uz.style.background = 'rgba(224,82,82,0.05)';
+          let err = document.getElementById('err-ns-upload');
+          if (!err) {
+              err = document.createElement('div');
+              err.id = 'err-ns-upload';
+              err.className = 'field-error show';
+              err.style.marginTop = '0.5rem';
+              err.style.textAlign = 'center';
+              uz.parentNode.appendChild(err);
+          }
+          err.textContent = 'Please upload a video or image file to analyze.';
+      }
+      ok = false; 
+  }
   if (!ok) return;
 
   // Register patient
@@ -2234,12 +2282,24 @@ async function submitStudy() {
     await loadPatients();
   } catch(e) {}
 
-  // Update report
-  document.getElementById('rep-patid').textContent = patData.patientId;
-  document.getElementById('rep-date').textContent = patData.studyDate;
+  // Update report (Optional chaining prevents null crashes)
+  if (document.getElementById('rep-patid')) document.getElementById('rep-patid').textContent = patData.patientId;
+  if (document.getElementById('rep-date')) document.getElementById('rep-date').textContent = patData.studyDate;
 
-  // Start pipeline animation
-  startPipeline();
+  // Upload file to Backend
+  const formData = new FormData();
+  formData.append('file', uploadedFile);
+
+  try {
+    console.log("Submitting API request to /api/upload");
+    const result = await api('POST', '/api/upload', formData, true); // true for isFormData
+    console.log("API response received", result);
+    // Start pipeline animation
+    startPipeline(result);
+  } catch(e) {
+    console.error("Submission failed", e);
+    alert("Analysis failed: " + e.message);
+  }
 }
 
 function saveDraft() {
@@ -2260,7 +2320,7 @@ function onDrop(e) {
 // ═══════════════════════════════════════════════════════════════
 //  PIPELINE ANIMATION + RESULTS REVEAL
 // ═══════════════════════════════════════════════════════════════
-function startPipeline() {
+function startPipeline(result) {
   const card = document.getElementById('pipe-card');
   card.style.display = 'block';
   card.scrollIntoView({ behavior:'smooth', block:'nearest' });
@@ -2275,7 +2335,9 @@ function startPipeline() {
   runPhase(1, 1800, () => runPhase(2, 2200, () => runPhase(3, 1400, () => runPhase(4, 1200, () => {
     document.getElementById('pipe-badge').textContent = '✓ Complete';
     document.getElementById('pipe-badge').className = 'badge badge-green';
-    revealResults();
+    revealResults(result);
+    // Auto-navigate to findings page
+    nav('analysis', document.getElementById('sb-findings'));
   }))));
 }
 
@@ -2296,14 +2358,33 @@ function runPhase(n, dur, cb) {
   })(performance.now());
 }
 
-function revealResults() {
-  // Fake result data — replace with real backend response
-  const totalFrames = Math.round(8000 + Math.random() * 4000);
-  const pruned = Math.round(totalFrames * (0.10 + Math.random() * 0.12));
+function revealResults(result) {
+  // Real backend response integration
+  const totalFrames = result ? result.summary.total_frames_processed : 0;
+  const pruned = result ? result.summary.frames_skipped : 0;
   const diagnostic = totalFrames - pruned;
-  const diagPct = ((diagnostic / totalFrames) * 100).toFixed(1);
-  const conf = (0.80 + Math.random() * 0.12).toFixed(2);
-  const findingCount = 3;
+  const diagPct = totalFrames > 0 ? ((diagnostic / totalFrames) * 100).toFixed(1) : "0.0";
+  
+  // Abnormalities
+  let abnormalities = [];
+  if (result && result.detailed_results) {
+      abnormalities = result.detailed_results.filter(
+          r => r.status === 'processed' && r.prediction && r.prediction.pathology !== 'Normal'
+      );
+  }
+  const findingCount = result ? result.summary.abnormalities_detected : 0;
+  
+  // Average confidence calculation
+  let avgConf = 0;
+  if (abnormalities.length > 0) {
+      const sumConf = abnormalities.reduce((acc, curr) => acc + (curr.prediction.pathology_confidence || 0), 0);
+      avgConf = (sumConf / abnormalities.length).toFixed(2);
+  } else {
+      avgConf = "0.90"; // default if normal
+  }
+  const conf = avgConf;
+  
+  let findingsHtml = '';
 
   // Overview
   document.getElementById('ov-frames').textContent = totalFrames.toLocaleString();
@@ -2343,29 +2424,38 @@ function revealResults() {
   document.getElementById('heatmaps-empty').style.display = 'none';
   document.getElementById('heatmaps-results').style.display = 'block';
 
-  const frameBase = Math.round(totalFrames / 3);
-  frameN = frameBase + 500; frameTotal = totalFrames;
+  // Set initial frame display
+  frameN = abnormalities.length > 0 ? abnormalities[0].frame_idx : 1;
+  frameTotal = totalFrames || 1;
   document.getElementById('fnum').textContent = frameN;
   document.getElementById('fdisplay').textContent = frameN;
   document.getElementById('ftotal').textContent = totalFrames.toLocaleString();
 
   document.getElementById('findings-count').textContent = findingCount + ' Alerts';
-  document.getElementById('findings-list').innerHTML = `
-    <div class="finding-item" onclick="openModal('Intestinal Ulcer','#${frameBase+500}','Small Intestine','0.91','High Severity','91%','var(--red)')">
-      <div class="fi-sev high"></div>
-      <div><div class="fi-name">Intestinal Ulcer</div><div class="fi-loc">📍 Small Intestine · Frame #${frameBase+500}</div></div>
-      <div class="fi-conf-wrap"><div class="fi-conf-val text-red">0.91</div><div class="prog"><div class="prog-fill" style="width:91%;background:var(--red)"></div></div></div>
-    </div>
-    <div class="finding-item" onclick="openModal('Active Bleeding','#${frameBase+200}','Small Intestine','0.85','High Severity','88%','var(--red)')">
-      <div class="fi-sev high"></div>
-      <div><div class="fi-name">Active Bleeding</div><div class="fi-loc">📍 Small Intestine · Frame #${frameBase+200}</div></div>
-      <div class="fi-conf-wrap"><div class="fi-conf-val text-red">0.85</div><div class="prog"><div class="prog-fill" style="width:85%;background:var(--red)"></div></div></div>
-    </div>
-    <div class="finding-item" onclick="openModal('Mucosal Erosion','#${Math.round(frameBase*0.5)}','Stomach','0.74','Medium Severity','84%','var(--amber)')">
-      <div class="fi-sev med"></div>
-      <div><div class="fi-name">Mucosal Erosion</div><div class="fi-loc">📍 Stomach · Frame #${Math.round(frameBase*0.5)}</div></div>
-      <div class="fi-conf-wrap"><div class="fi-conf-val text-amber">0.74</div><div class="prog"><div class="prog-fill" style="width:74%;background:var(--amber)"></div></div></div>
-    </div>`;
+  
+  if (abnormalities.length === 0) {
+      findingsHtml = '<div style="padding:1rem;color:var(--fog);text-align:center;border:1px dashed var(--border);border-radius:var(--radius-sm);">No abnormalities detected. Great news!</div>';
+  } else {
+      abnormalities.forEach(item => {
+          const pred = item.prediction;
+          const confScore = (pred.pathology_confidence).toFixed(2);
+          const confPct = Math.round(pred.pathology_confidence * 100) + '%';
+          const loc = pred.anatomical || 'Unknown';
+          const path = pred.pathology;
+          
+          let sevClass = 'med', col = 'var(--amber)', sevStr = 'Medium Severity';
+          if (confScore >= 0.85) { sevClass = 'high'; col = 'var(--red)'; sevStr = 'High Severity'; }
+          else if (confScore < 0.6) { sevClass = 'low'; col = 'var(--green)'; sevStr = 'Low Severity'; }
+          
+          findingsHtml += `
+            <div class="finding-item" onclick="openModal('${path}','#${item.frame_idx}','${loc}','${confScore}','${sevStr}','${confPct}','${col}')">
+              <div class="fi-sev ${sevClass}"></div>
+              <div><div class="fi-name">${path}</div><div class="fi-loc">📍 ${loc} · Frame #${item.frame_idx}</div></div>
+              <div class="fi-conf-wrap"><div class="fi-conf-val" style="color:${col}">${confScore}</div><div class="prog"><div class="prog-fill" style="width:${confPct};background:${col}"></div></div></div>
+            </div>`;
+      });
+  }
+  document.getElementById('findings-list').innerHTML = findingsHtml;
 
   // Sidebar badge
   const sbF = document.getElementById('sb-findings');

@@ -54,7 +54,11 @@ def evaluate_dataset(dataset_dir, num_samples, output_dir):
     report = {
         "study_id": study_id,
         "timestamp": datetime.now().isoformat(),
-        "dataset_dir": dataset_dir,
+        "clinical_context": {
+            "department": "Gastroenterology",
+            "report_type": "Automated AI PillCam Diagnostics",
+            "dataset_reference": os.path.basename(dataset_dir)
+        },
         "total_frames_sampled": sample_size,
         "metrics": {
             "processed": 0,
@@ -138,11 +142,11 @@ def evaluate_dataset(dataset_dir, num_samples, output_dir):
             print(f"  -> Anatomy: {anatomy} | Pathology: {pathology} ({path_conf:.2f})")
             
             finding = {
-                "frame_path": frame_path,
-                "quality_score": float(q_conf),
+                "frame_filename": os.path.basename(frame_path),
+                "quality_score": round(float(q_conf), 4),
                 "anatomy": anatomy,
                 "pathology": pathology,
-                "confidence": float(path_conf),
+                "confidence": round(float(path_conf), 4),
                 "heatmap_url": heatmap_saved_path
             }
             report["findings"].append(finding)

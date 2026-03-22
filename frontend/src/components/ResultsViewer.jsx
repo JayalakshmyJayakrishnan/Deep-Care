@@ -12,7 +12,7 @@ const ResultsViewer = ({ result }) => {
 
     const displayList = activeTab === 'abnormalities' ? abnormalities : result.detailed_results;
 
-    const BASE_URL = 'http://127.0.0.1:5000/';
+    const BASE_URL = `http://${window.location.hostname}:5000/`;
 
     return (
         <div className="results-container">

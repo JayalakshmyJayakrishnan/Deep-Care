@@ -1,0 +1,31 @@
+{
+    "study_id": "EVAL-20260322-070705",
+    "timestamp": "2026-03-22T07:07:05.721919",
+    "clinical_context": {
+        "department": "Gastroenterology",
+        "report_type": "Automated AI PillCam Diagnostics",
+        "dataset_reference": "Galar_Frames_1_to_10 (1)"
+    },
+    "total_frames_sampled": 1,
+    "metrics": {
+        "processed": 1,
+        "skipped_low_quality": 0,
+        "abnormalities_detected": 1,
+        "anatomy_breakdown": {
+            "Small Bowel": 1
+        },
+        "pathology_breakdown": {
+            "Diverticulum": 1
+        }
+    },
+    "findings": [
+        {
+            "frame_filename": "frame_096000.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Diverticulum",
+            "confidence": 0.0986,
+            "heatmap_url": "EVAL-20260322-070705\\heatmap_58b27672.jpg"
+        }
+    ]
+}

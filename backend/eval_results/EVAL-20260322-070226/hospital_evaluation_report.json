@@ -1,0 +1,36 @@
+{
+    "study_id": "EVAL-20260322-070226",
+    "timestamp": "2026-03-22T07:02:26.038598",
+    "dataset_dir": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)",
+    "total_frames_sampled": 2,
+    "metrics": {
+        "processed": 2,
+        "skipped_low_quality": 0,
+        "abnormalities_detected": 2,
+        "anatomy_breakdown": {
+            "Small Bowel": 2
+        },
+        "pathology_breakdown": {
+            "Polyp": 1,
+            "Erosion": 1
+        }
+    },
+    "findings": [
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\10\\frame_031140.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Polyp",
+            "confidence": 1.0,
+            "heatmap_url": "EVAL-20260322-070226\\heatmap_d1a64618.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\3\\frame_055100.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Erosion",
+            "confidence": 1.0,
+            "heatmap_url": "EVAL-20260322-070226\\heatmap_7b0a235e.jpg"
+        }
+    ]
+}

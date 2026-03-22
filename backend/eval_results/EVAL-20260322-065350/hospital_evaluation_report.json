@@ -1,0 +1,64 @@
+{
+    "study_id": "EVAL-20260322-065350",
+    "timestamp": "2026-03-22T06:53:50.625960",
+    "dataset_dir": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)",
+    "total_frames_sampled": 5,
+    "metrics": {
+        "processed": 5,
+        "skipped_low_quality": 0,
+        "abnormalities_detected": 4,
+        "anatomy_breakdown": {
+            "Colon": 2,
+            "Stomach": 1,
+            "Small Bowel": 2
+        },
+        "pathology_breakdown": {
+            "Normal": 1,
+            "Diverticulum": 1,
+            "Stricture": 1,
+            "Chylous Cyst": 2
+        }
+    },
+    "findings": [
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\1\\frame_111195.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Colon",
+            "pathology": "Normal",
+            "confidence": 0.09631149470806122,
+            "heatmap_url": null
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\5\\frame_023860.PNG",
+            "quality_score": 0.7022735270699181,
+            "anatomy": "Stomach",
+            "pathology": "Diverticulum",
+            "confidence": 0.09177196770906448,
+            "heatmap_url": "EVAL-20260322-065350\\heatmap_d401c3c8.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\7\\frame_060845.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Stricture",
+            "confidence": 0.09281547367572784,
+            "heatmap_url": "EVAL-20260322-065350\\heatmap_249f97a5.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\8\\frame_026300.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Small Bowel",
+            "pathology": "Chylous Cyst",
+            "confidence": 0.10308067500591278,
+            "heatmap_url": "EVAL-20260322-065350\\heatmap_cfaccb19.jpg"
+        },
+        {
+            "frame_path": "d:\\MINOR\\pillcam_platform\\datasets\\Galar_Frames_1_to_10 (1)\\8\\frame_005900.PNG",
+            "quality_score": 0.99,
+            "anatomy": "Colon",
+            "pathology": "Chylous Cyst",
+            "confidence": 0.09416071325540543,
+            "heatmap_url": "EVAL-20260322-065350\\heatmap_f3ccdd06.jpg"
+        }
+    ]
+}

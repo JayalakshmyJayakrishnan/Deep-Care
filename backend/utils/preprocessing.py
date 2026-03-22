@@ -41,9 +41,17 @@ class Preprocessor:
 
     def extract_frames(self, video_path, sample_rate=1):
         """
-        Generator to extract frames from video.
+        Generator to extract frames from video or a single frame from an image.
         sample_rate: Process every Nth frame.
         """
+        import os
+        ext = os.path.splitext(video_path)[1].lower()
+        if ext in ['.jpg', '.jpeg', '.png', '.bmp']:
+            frame = cv2.imread(video_path)
+            if frame is not None:
+                yield 0, frame
+            return
+
         cap = cv2.VideoCapture(video_path)
         frame_count = 0
         

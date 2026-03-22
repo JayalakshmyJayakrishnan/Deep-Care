@@ -14,16 +14,18 @@ class MTLEngine:
         # Load the Real Model Architecture
         self.model = DeepCareMTL(num_anatomy_classes=3, num_pathology_classes=12)
         
-        # Load weights if available
-        weights_path = os.path.join(os.path.dirname(__file__), '..', 'weights', 'best_model.pth')
-        if os.path.exists(weights_path):
-            try:
-                self.model.load_state_dict(torch.load(weights_path, map_location=self.device))
-                print(f"MTLEngine: Loaded trained weights from {weights_path}")
-            except Exception as e:
-                print(f"MTLEngine: Failed to load weights ({e}). Using uninitialized model.")
-        else:
-            print("MTLEngine: No trained weights found. Using uninitialized model.")
+        # Load the official pre-trained weights
+        weights_path = os.path.join(os.path.dirname(__file__), 'gi_model.pth')
+        if not os.path.exists(weights_path):
+            raise RuntimeError(f"Critical Failure: The pathology model weights were not found at '{weights_path}'. Ensure the required files are present.")
+            
+        try:
+            # We enforce weights_only=False because standard PyTorch save/load via zip needs it, and we control the files locally
+            state_dict = torch.load(weights_path, map_location=self.device, weights_only=False)
+            self.model.load_state_dict(state_dict, strict=False)
+            print(f"MTLEngine: successfully instantiated and loaded trained weights from {weights_path}")
+        except Exception as e:
+            raise RuntimeError(f"Critical Failure: Failed to interpret or load the state_dict from weights file. Details: {e}")
             
         self.model.eval()
         self.model.to(self.device)

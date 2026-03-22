@@ -3747,7 +3747,7 @@
     //  → Change BASE_URL to point to your Flask/FastAPI server
     //  → All API calls go through the `api()` helper function
     // ═══════════════════════════════════════════════════════════════
-    const BASE_URL = 'http://localhost:5000'; // ← Change this to your backend URL
+    const BASE_URL = 'http://' + window.location.hostname + ':5000'; // ← Change this to your backend URL
 
     async function api(method, endpoint, data, isFormData = false) {
       const token = sessionStorage.getItem('deepcare_token');
